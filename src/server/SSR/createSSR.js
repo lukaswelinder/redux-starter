@@ -8,6 +8,7 @@ import { createMemoryHistory } from 'history';
 import getRoutes from './../../app/routes';
 import Html from './html';
 import ApiClient from './../../helpers/ApiClient';
+import langs from './../../helpers/langs';
 import configureStore from './../../app/redux/store';
 import config from './../../app/config';
 
@@ -18,7 +19,12 @@ export default function createSSR(assets) {
       initialEntries: [req.url]
     });
     const client = new ApiClient(req);
-    const store = configureStore(history, client);
+    const lang = langs.find(c => c.value === req.i18n.language) || langs[0];
+    const initialI18nStore = {};
+    req.i18n.languages.forEach((l) => {
+      initialI18nStore[l] = req.i18n.services.resourceStore.data[l];
+    });
+    const store = configureStore(history, client, { internationalization: { lang, langs, initialI18nStore } });
     const routes = getRoutes(store);
 
     const hydrateOnClient = () => {
@@ -26,6 +32,10 @@ export default function createSSR(assets) {
         `<!doctype html>\n${renderToString(
           <Html
             assets={assets}
+            initialI18nStore={initialI18nStore}
+            history={history}
+            lang={lang}
+            langs={langs}
             store={store}
           />
         )}`
@@ -70,6 +80,10 @@ export default function createSSR(assets) {
         <Html
           assets={assets}
           component={component}
+          initialI18nStore={initialI18nStore}
+          history={history}
+          lang={lang}
+          langs={langs}
           store={store}
         />
       );

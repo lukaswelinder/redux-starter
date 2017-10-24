@@ -3,17 +3,19 @@ import Home from './Home/Home';
 import Users from './Users/Users';
 import NotFound from './NotFound/NotFound';
 
+const langPrefix = (path = '') => `/:lng/${path}`;
+
 export default (store) => {  // eslint-disable-line
   return [{
     component: App,
     routes: [
       {
-        path: '/',
+        path: langPrefix(),
         exact: true,
         component: Home
       },
       {
-        path: '/users',
+        path: langPrefix('users'),
         component: Users
       },
       {

@@ -6,9 +6,11 @@ import { hydrate } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import Redbox from 'redbox-react';
 import createHistory from 'history/createBrowserHistory';
+import { I18nextProvider } from 'react-i18next';
 
 import Root from './root';
 import ApiClient from './../helpers/ApiClient';
+import i18n from '../helpers/i18n';
 import getRoutes from './../app/routes';
 import config from './../app/config';
 import configureStore from './../app/redux/store';
@@ -23,9 +25,15 @@ const hydrateApp = renderProps => hydrate(
   <AppContainer
     errorReporter={Redbox}
   >
-    <Root
-      {...renderProps}
-    />
+    <I18nextProvider
+      i18n={i18n}
+      initialLanguage={window.__INITIAL_STATE__.internationalization.lang.value}
+      initialI18nStore={window.__INITIAL_STATE__.internationalization.initialI18nStore}
+    >
+      <Root
+        {...renderProps}
+      />
+    </I18nextProvider>
   </AppContainer>,
   dest
 );

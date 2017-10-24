@@ -3,6 +3,7 @@ import { combineReducers } from 'redux-immutablejs';
 import { routerReducer as router } from 'react-router-redux';
 
 import auth from './modules/auth';
+import internationalization from './modules/internationalization';
 import records, { createRecordsReducer } from './modules/records';
 
 export default function createReducer() {
@@ -10,6 +11,7 @@ export default function createReducer() {
     form,
     router,
     auth,
+    internationalization,
     users: createRecordsReducer(records, 'users')
   });
 }

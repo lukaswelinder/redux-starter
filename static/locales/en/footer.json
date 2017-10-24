@@ -1,0 +1,46 @@
+{
+  "column1": {
+    "title": "About Us",
+    "link1": "About Us",
+    "link2": "Our Brand Charter",
+    "link3": "Management Team",
+    "link4": "Board Of Directors",
+    "link5": "Corporate Governance Policy",
+    "link6": "Code of Conduct",
+    "link7": "IT Corporate Governance Manual"
+  },
+  "column2": {
+    "title1": "Media Center",
+    "link1": "Media Center",
+    "link2": "Corporate Social Responsibility",
+    "link3": "Bank al Etihad & the Community",
+    "link4": "News",
+    "link5": "Advertisements",
+    "title2": "About the site",
+    "link6": "Privacy Policy",
+    "link7": "Security",
+    "link8": "Site Map"
+  },
+  "column3": {
+    "title": "Information & Services",
+    "link1": "Interest Rates",
+    "link2": "Tariff Book",
+    "link3": "Exchange Rates",
+    "link4": "IBAN Generator",
+    "link5": "FATCA",
+    "link6": "Loan & Deposit Calculators",
+    "link7": "Corporate Lending Rate"
+  },
+  "column4": {
+    "title1": "Investor relations",
+    "link1": "Investor News",
+    "link2": "Banking Rating",
+    "link3": "Share Price",
+    "link4": "Annual Report",
+    "link5": "Foreign Equity News",
+    "title2": "Careers",
+    "link6": "Why Bank Etihad ?",
+    "link7": "Apply Online",
+    "link8": "Applications Hints & Tips"
+  }
+}

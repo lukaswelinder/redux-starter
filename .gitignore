@@ -29,5 +29,8 @@ webpack-stats.json
 *.sublime-workspace
 *.sublime-project
 
+# Locales
+.next
+
 # Tests
 coverage/
